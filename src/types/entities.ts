@@ -1,14 +1,12 @@
 export interface Timestamp {
-  created_at: string
-  updated_at: string
+  created_at: Date
+  updated_at: Date
 }
 
 export interface User extends Timestamp {
   id: number
   name: string
   email: string
-  password: string
-  password_confirmation: string
   bio: string | null
 }
 
@@ -39,14 +37,19 @@ export interface Comment extends Timestamp {
   content: string
 }
 
-export interface blockRelationship extends Timestamp {
+export interface BlockRelationship extends Timestamp {
   id: number
   blocking_id: number
   blocked_id: number
 }
 
-export interface followRelationship extends Timestamp {
+export interface FollowRelationship extends Timestamp {
   id: number
   following_id: number
   follower_id: number
+}
+
+export interface Password {
+  password: string
+  password_confirmation: string
 }
